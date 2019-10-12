@@ -10,6 +10,7 @@ import java.util.concurrent.Callable;
 
 
 public class ThreadCacheManagerImpl implements ThreadCacheManager {
+    public static final String CACHE_NAME = "thread";
 
     private ThreadCache threadCache;
 
@@ -29,7 +30,7 @@ public class ThreadCacheManagerImpl implements ThreadCacheManager {
 
     @Override
     public Collection<String> getCacheNames() {
-        return Collections.singletonList(THREAD);
+        return Collections.singletonList(CACHE_NAME);
     }
 
     public class ThreadCache extends AbstractValueAdaptingCache {
@@ -48,7 +49,7 @@ public class ThreadCacheManagerImpl implements ThreadCacheManager {
 
         @Override
         public String getName() {
-            return "thread";
+            return ThreadCacheManagerImpl.CACHE_NAME;
         }
 
         @Override
